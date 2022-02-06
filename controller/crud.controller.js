@@ -11,9 +11,9 @@ const addData = async (req, res) => {
     //SAVING DATA
     try{
         const savedAddData = await addData.save();
-        res.json(savedAddData);
+        res.status(200).json(savedAddData);
     }catch(err){
-        res.json(err);
+        res.status(400).json(err);
     }
 }
 
@@ -21,10 +21,10 @@ const addData = async (req, res) => {
 const viewAll = async (req, res) => {
     try{
     const viewData = await crudModel.find();
-    res.json(viewData);
+    res.status(200).json(viewData);
     }
     catch(err){
-        res.json(err);
+        res.status(400).json(err);
     }
 }
 
@@ -32,9 +32,9 @@ const viewAll = async (req, res) => {
 const viewData = async (req, res) => {
     try{
         await crudModel.findOne({ _id: req.params.id });
-        res.json({ success: true });
+        res.status(200).json({ success: true });
     }catch(err){
-        res.json({ success: false, data: err });
+        res.status(400).json({ success: false, data: err });
     }
 }
 
@@ -55,9 +55,9 @@ const updateData = async (req, res) => {
                     email: req.body.email
                 }
             });
-        res.json(updatedData);
+        res.status(200).json(updatedData);
     }catch(err){
-        res.json(err);
+        res.status(400).json(err);
     }
 }
 
