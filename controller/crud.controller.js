@@ -49,7 +49,7 @@ const updateData = async (req, res) => {
     const user = await userModel.findOne({ userId: req.params.userId});
 
     if(user.role == 'user'){
-        res.status(400).json({success: false});
+        res.status(400).json({success: false, msg: 'Your not authorize to update a record.'});
     }else if(user.role == 'administrator'){
         //UPDATE RECORD
         try{
