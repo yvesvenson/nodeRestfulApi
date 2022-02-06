@@ -22,7 +22,9 @@ app.use(bodyParser.json());
 //IMPORT ROUTES
 const userRoutes = require('./router/user.router');
 const crudRoutes = require('./router/crud.router');
+const resetRoutes = require('./router/reset.router');
 
 //ROUTES MIDDLEWARES
 app.use('/user', userRoutes);
 app.use('/crud', crudRoutes);
+app.use('/reset', resetRoutes);
