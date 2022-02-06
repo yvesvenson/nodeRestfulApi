@@ -23,8 +23,10 @@ app.use(bodyParser.json());
 const userRoutes = require('./router/user.router');
 const crudRoutes = require('./router/crud.router');
 const resetRoutes = require('./router/reset.router');
+const imagesRoutes = require('./router/images.router');
 
 //ROUTES MIDDLEWARES
 app.use('/user', userRoutes);
 app.use('/crud', crudRoutes);
 app.use('/reset', resetRoutes);
+app.use('/images', imagesRoutes);
